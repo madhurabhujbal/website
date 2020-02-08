@@ -1,0 +1,25 @@
+.btn-info{
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
+}
+.btn-info:hover {
+    background-color: #212529;
+    border-color: #212529;
+    color: coral;
+}
+
+.btn-link{
+    color: #212529;
+}
+.btn-link:hover {
+    color:coral;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .active>.nav-link:hover{
+    color: coral;
+}

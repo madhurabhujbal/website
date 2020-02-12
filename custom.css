@@ -24,3 +24,12 @@
     color: coral;
 }
 
+.list-group-item:hover{
+    color: grey;
+}
+
+.image-fluid{
+    width: 20%;
+    height: 20%;
+    align-self: right;
+}

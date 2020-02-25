@@ -1,4 +1,4 @@
-.btn-info{
+.btn-info {
     background-color: #212529;
     border-color: #212529;
     color: white;
@@ -7,6 +7,18 @@
     background-color: #212529;
     border-color: #212529;
     color: coral;
+}
+
+.btn-info:focus {
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
+}
+
+.btn-info:not(:disabled):not(.disabled):active {
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
 }
 
 .btn-link{

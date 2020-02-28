@@ -9,6 +9,9 @@ http.createServer(function (req, res) {
     if (req.url === '/images/fb_profile.jpg') {
         contentType = 'image/jpg';
     }
+    else if (req.url === '/css/custom.css'){
+        contentType = 'text/css';
+    }
 function fileReadCallback(err, content) {
     if (err) return;
     // res.write(data);

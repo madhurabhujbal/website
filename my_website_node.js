@@ -6,13 +6,16 @@ const path = require('path');
 http.createServer(function (req, res) {
     let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
     let contentType = 'text/html';
+    if (req.url === '/images/fb_profile.jpg') {
+        contentType = 'image/jpg';
+    }
 function fileReadCallback(err, content) {
     if (err) return;
     // res.write(data);
     // res.end();
     res.writeHead(200, {'Content-type': contentType});
-    res.end(content, 'utf8');
+    res.end(content);
 }
-fs.readFile(filepath, 'utf8', fileReadCallback)
+fs.readFile(filepath, fileReadCallback)
 console.log(req.url + '->' + filepath);
 }).listen(8080);

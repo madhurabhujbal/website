@@ -3,15 +3,53 @@ const fs = require('fs');
 const path = require('path');
 
 //creating server
+//  //let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
+//   let filepath = path.join(__dirname,  "\\html\\home.html");
 http.createServer(function (req, res) {
     let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
-    let contentType = 'text/html';
+    switch(req.url){
+        case '/custom.css':
+            filepath = path.join(__dirname, "\\css\\custom.css");
+        break;
 
-    if (req.url === '/images/fb_profile.jpg') {
-        contentType = 'image/jpg';
+        case '/home.html':
+            filepath = path.join(__dirname, "\\html\\home.html");
+        break;
+
+        case '/certifications_info_page.html':
+            filepath = path.join(__dirname, "\\html\\certifications_info_page.html");
+        break;
+
+        case '/hobbies.html':
+            filepath = path.join(__dirname, "\\html\\hobbies.html");
+        break;
+
+        // case '/css/custom.css':
+        //     filepath = path.join(__dirname, "\\css\\custom.css");
+        // break;
     }
-    else if (req.url === '/css/custom.css'){
-        contentType = 'text/css';
+
+    //let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
+    fs.readFile(filepath, fileReadCallback)
+    console.log(req.url + '->' + filepath);
+    let extname = path.extname(filepath);
+
+    switch(extname){
+        case '.html':
+            contentType = 'text/html';
+        break;
+
+        case '.css':
+            contentType = 'text/css';
+        break;
+
+        case '/images/fb_profile.jpg':
+            contentType = 'image/jpg'
+        break;
+
+        case '.pdf':
+            contentType = 'application/pdf'
+        break;
     }
 
     function fileReadCallback(err, content) {
@@ -22,6 +60,6 @@ http.createServer(function (req, res) {
         res.end(content);
     }
 
-    fs.readFile(filepath, fileReadCallback)
-    console.log(req.url + '->' + filepath);
+    // fs.readFile(filepath, fileReadCallback)
+    // console.log(req.url + '->' + filepath);
 }).listen(8080);

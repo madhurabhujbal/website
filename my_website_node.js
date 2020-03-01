@@ -3,42 +3,20 @@ const fs = require('fs');
 const path = require('path');
 
 //creating server
-//  //let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
-//   let filepath = path.join(__dirname,  "\\html\\home.html");
 http.createServer(function (req, res) {
     let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
-    switch(req.url){
-        case '/custom.css':
-            filepath = path.join(__dirname, "\\css\\custom.css");
-        break;
-
-        case '/home.html':
-            filepath = path.join(__dirname, "\\html\\home.html");
-        break;
-
-        case '/certifications_info_page.html':
-            filepath = path.join(__dirname, "\\html\\certifications_info_page.html");
-        break;
-
-        case '/hobbies.html':
-            filepath = path.join(__dirname, "\\html\\hobbies.html");
-        break;
-
-        // case '/css/custom.css':
-        //     filepath = path.join(__dirname, "\\css\\custom.css");
-        // break;
-    }
 
     //let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
-    fs.readFile(filepath, fileReadCallback)
-    console.log(req.url + '->' + filepath);
     let extname = path.extname(filepath);
+    console.log(req.url + ' -> ' + filepath + ' Ext:' + extname);
 
+    let contentType = 'text/html';
+    // if contentType is not declared and initialised here, data race condition will rise. It means
+    //that when extname is checked in switch case, as this is asynchronous process,
+    //till the time .css file is checked,
+    //control moves to next case. If image with .jpg extention is found, the content type is set to image/jpg
+    //even for the css file. Hence, css will not render in the requested url.
     switch(extname){
-        case '.html':
-            contentType = 'text/html';
-        break;
-
         case '.css':
             contentType = 'text/css';
         break;
@@ -60,6 +38,6 @@ http.createServer(function (req, res) {
         res.end(content);
     }
 
-    // fs.readFile(filepath, fileReadCallback)
+    fs.readFile(filepath, fileReadCallback)
     // console.log(req.url + '->' + filepath);
 }).listen(8080);

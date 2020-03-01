@@ -43,7 +43,7 @@ http.createServer(function (req, res) {
             contentType = 'text/css';
         break;
 
-        case '/images/fb_profile.jpg':
+        case '.jpg':
             contentType = 'image/jpg'
         break;
 

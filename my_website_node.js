@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 //creating server
-http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
     let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
 
     //let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
@@ -40,4 +40,7 @@ http.createServer(function (req, res) {
 
     fs.readFile(filepath, fileReadCallback)
     // console.log(req.url + '->' + filepath);
-}).listen(8080);
+});
+
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

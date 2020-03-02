@@ -4,7 +4,7 @@ const path = require('path');
 
 //creating server
 const server = http.createServer(function (req, res) {
-    let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
+    let filepath = path.join(__dirname, req.url === '/' ? "/html/home.html" : req.url);
 
     //let filepath = path.join(__dirname, req.url === '/' ? "\\html\\home.html" : req.url);
     let extname = path.extname(filepath);

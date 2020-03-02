@@ -1,0 +1,23 @@
+{
+  "name": "my_website",
+  "version": "1.0.0",
+  "description": "Madhura's personal website",
+  "main": "my_website_node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node my_website_node.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madhurabhujbal/website.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "Madhura Bhujbal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madhurabhujbal/website/issues"
+  },
+  "homepage": "https://github.com/madhurabhujbal/website#readme"
+}

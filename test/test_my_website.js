@@ -29,5 +29,23 @@ describe('Status and content', function(){
                 done();
             });
         });
+    });
+
+    describe('About page', function() {
+        it ('status', function(done) {
+            request(`http://localhost:${PORT}/html/certifications_info_page.html`, function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                done();
+            });
+        });
+    });
+
+    describe('Hobbies page', function() {
+        it ('status', function(done) {
+            request(`http://localhost:${PORT}/html/hobbies.html`, function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                done();
+            });
+        });
 });
 });

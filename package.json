@@ -4,7 +4,7 @@
   "description": "Madhura's personal website",
   "main": "my_website_node.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node my_website_node.js"
   },
   "repository": {
@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/madhurabhujbal/website/issues"
   },
-  "homepage": "https://github.com/madhurabhujbal/website#readme"
+  "homepage": "https://github.com/madhurabhujbal/website#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
+    "request": "^2.88.2"
+  }
 }
